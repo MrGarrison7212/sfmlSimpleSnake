@@ -5,9 +5,16 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+//size variables
+int N = 30, M = 20;
+int size = 16;
+int w = size * N;
+int h = size * M;
+
+
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Works");
+	sf::RenderWindow window(sf::VideoMode(w, h), "SFML Works");
 
 	while (window.isOpen()) {
 

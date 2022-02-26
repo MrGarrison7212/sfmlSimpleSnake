@@ -2,6 +2,8 @@
 //
 
 #include "pch.h"
+#include <time.h>
+#include <sstream>
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
@@ -10,7 +12,8 @@ int N = 30, M = 20;
 int size = 16;
 int w = size * N;
 int h = size * M;
-
+int num = 2;
+int dir = 0;
 //snake
 struct snake {
 	int x = 5, y = 5;
@@ -21,8 +24,16 @@ struct fruit {
 	int x, y;
 } f;
 
+void gameLogic() {
+	for (int i = num; i > 0; i--) {
+		s[i].x = s[i - 1].x;
+		s[i].y = s[i - 1].y; 
+	}
+}
+
 int main()
 {
+	srand(time(NULL));
 	sf::RenderWindow window(sf::VideoMode(w, h), "SFML Works");
 	//insert textures
 	sf::Texture t1, t2, t3, t4, t5, t6;
@@ -34,6 +45,7 @@ int main()
 
 	sf::Sprite sBackground(t1), sFruit(t2), sSnake(t3), sSnake1(t4), sTail(t5);
 
+	sf::Clock clock;
 	while (window.isOpen()) {
 
 		sf::Event event;
@@ -46,6 +58,11 @@ int main()
 				window.close();
 			}
 		}
+		//keyboard events
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) { dir = 3; }
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) { dir = 2; }
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) { dir = 1; }
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) { dir = 0; }
 
 		window.clear();
 		//draw background

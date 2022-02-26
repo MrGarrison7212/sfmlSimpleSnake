@@ -29,8 +29,13 @@ int main()
 
 		sf::Event event;
 		while (window.pollEvent(event)) {
-
-
+			//closing mechanism
+			if (event.type == sf::Event::Closed) {
+				window.close();
+			}
+			if (event.Event::KeyPressed && event.Event::key.code == sf::Keyboard::Escape) {
+				window.close();
+			}
 		}
 
 		window.clear();

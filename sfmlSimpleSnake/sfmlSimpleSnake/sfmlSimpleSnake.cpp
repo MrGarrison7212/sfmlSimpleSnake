@@ -11,6 +11,15 @@ int size = 16;
 int w = size * N;
 int h = size * M;
 
+//snake
+struct snake {
+	int x = 5, y = 5;
+} s[100];
+
+//fruit
+struct fruit {
+	int x, y;
+} f;
 
 int main()
 {

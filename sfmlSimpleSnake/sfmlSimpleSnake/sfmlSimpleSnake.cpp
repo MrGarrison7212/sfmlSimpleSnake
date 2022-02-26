@@ -39,6 +39,8 @@ int main()
 		}
 
 		window.clear();
+		//draw background
+		window.draw(sBackground);
 		window.display();
 	}
 

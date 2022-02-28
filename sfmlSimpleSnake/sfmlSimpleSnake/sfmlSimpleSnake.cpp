@@ -51,7 +51,12 @@ int main()
 	sf::Sprite sBackground(t1), sFruit(t2), sSnake(t3), sSnake1(t4), sTail(t5);
 
 	sf::Clock clock;
+	float timer = 0, delay = 0.1;
 	while (window.isOpen()) {
+
+		float time = clock.getElapsedTime().asSeconds();
+		clock.restart();
+		timer += time;
 
 		sf::Event event;
 		while (window.pollEvent(event)) {
@@ -68,6 +73,11 @@ int main()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) { dir = 2; }
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) { dir = 1; }
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) { dir = 0; }
+
+		if (timer > delay) {
+			timer = 0; 
+			gameLogic();
+		}
 
 		window.clear();
 		//draw background

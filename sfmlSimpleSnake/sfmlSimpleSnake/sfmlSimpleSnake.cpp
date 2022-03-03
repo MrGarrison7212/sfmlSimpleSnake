@@ -34,7 +34,9 @@ void gameLogic() {
 	if (dir == 1) { s[0].y -= 1; }
 	if (dir == 2) { s[0].x += 1; }
 	if (dir == 3) { s[0].x -= 1; }
-
+	if ((s[0].x == f.x) && (s[0].y == f.y)) {
+		num++;
+	}
 }
 
 int main()

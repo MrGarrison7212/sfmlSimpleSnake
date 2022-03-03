@@ -36,6 +36,8 @@ void gameLogic() {
 	if (dir == 3) { s[0].x -= 1; }
 	if ((s[0].x == f.x) && (s[0].y == f.y)) {
 		num++;
+		f.x = rand() % N;
+		f.y = rand() % M;
 	}
 }
 
@@ -85,6 +87,7 @@ int main()
 		window.clear();
 		//draw background
 		window.draw(sBackground);
+		sFruit.setPosition(f.x*size, f.y*size);
 		window.draw(sFruit);
 		for (int i = 1; i < num - 1; i++) {
 			sSnake.setPosition(s[i].x*size, s[i].y*size);

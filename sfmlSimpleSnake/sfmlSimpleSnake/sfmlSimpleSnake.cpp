@@ -3,6 +3,7 @@
 
 #include "pch.h"
 #include <time.h>
+#include <conio.h>
 #include <sstream>
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -69,10 +70,10 @@ int main()
 			}
 		}
 		//keyboard events
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) { dir = 3; }
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) { dir = 2; }
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) { dir = 1; }
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) { dir = 0; }
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) { dir = 3; }
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) { dir = 2; }
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) { dir = 1; }
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) { dir = 0; }
 
 		if (timer > delay) {
 			timer = 0; 
@@ -82,6 +83,13 @@ int main()
 		window.clear();
 		//draw background
 		window.draw(sBackground);
+		window.draw(sFruit);
+		for (int i = 1; i < num - 1; i++) {
+			sSnake.setPosition(s[i].x*size, s[i].y*size);
+			window.draw(sSnake);
+		}
+		sSnake1.setPosition(s[0].x*size, s[0].y*size);
+		window.draw(sSnake1);
 		window.display();
 	}
 

@@ -15,6 +15,7 @@ int w = size * N;
 int h = size * M;
 int num = 2;
 int dir = 0;
+int score = 0;
 //snake
 struct snake {
 	int x = 5, y = 5;
@@ -36,6 +37,7 @@ void gameLogic() {
 	if (dir == 3) { s[0].x -= 1; }
 	if ((s[0].x == f.x) && (s[0].y == f.y)) {
 		num++;
+		score++;
 		f.x = rand() % N;
 		f.y = rand() % M;
 	}

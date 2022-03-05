@@ -41,6 +41,10 @@ void gameLogic() {
 		f.x = rand() % N;
 		f.y = rand() % M;
 	}
+	if (s[0].x > N) { s[0].x = 0; }
+	if (s[0].x < 0) { s[0].x = N; }
+	if (s[0].y > M) { s[0].y = 0; }
+	if (s[0].y < 0) { s[0].y = M; }
 }
 
 int main()

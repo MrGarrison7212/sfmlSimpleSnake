@@ -101,6 +101,8 @@ int main()
 		}
 		sSnake1.setPosition(s[0].x*size, s[0].y*size);
 		window.draw(sSnake1);
+		sTail.setPosition(s[num - 1].x*size, s[num - 1].y*size);
+		window.draw(sTail);
 		window.display();
 	}
 

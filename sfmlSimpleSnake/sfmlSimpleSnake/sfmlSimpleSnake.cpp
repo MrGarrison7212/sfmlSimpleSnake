@@ -59,6 +59,16 @@ int main()
 	t4.loadFromFile("Data/snake1.png");
 	t5.loadFromFile("Data/tail.png");
 
+	sf::Font font;
+	font.loadFromFile("Data/SpaceMission-rgyw9.otf");
+	std::ostringstream ssScore;
+	ssScore << "Score: " << score;
+	sf::Text scoreText;
+	scoreText.setCharacterSize(30);
+	scoreText.setPosition({ 10,10 });
+	scoreText.setFont(font);
+	scoreText.setString(ssScore.str());
+
 	sf::Sprite sBackground(t1), sFruit(t2), sSnake(t3), sSnake1(t4), sTail(t5);
 
 	sf::Clock clock;
@@ -103,6 +113,10 @@ int main()
 		window.draw(sSnake1);
 		sTail.setPosition(s[num - 1].x*size, s[num - 1].y*size);
 		window.draw(sTail);
+		window.draw(scoreText);
+		ssScore.str("");
+		ssScore << "Score: " << score;
+		scoreText.setString(ssScore.str());
 		window.display();
 	}
 
